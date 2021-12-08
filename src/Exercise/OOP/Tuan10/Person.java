@@ -5,13 +5,13 @@ import java.util.Calendar;
 
 public class Person {
     private String name;
-    private int yearOld;
+    private int yearOfBth;
     private boolean gender;// true is male ,false is female
 
 
-    public Person(String name, int yearOld, boolean gender) {
+    public Person(String name, int yearOfBth, boolean gender) {
         this.name = name;
-        this.yearOld = yearOld;
+        this.yearOfBth = yearOfBth;
         this.gender = gender;
     }
 
@@ -20,7 +20,7 @@ public class Person {
 
 
     public int getAge() {
-        return Calendar.getInstance().get(Calendar.YEAR) - yearOld;
+        return Calendar.getInstance().get(Calendar.YEAR) - yearOfBth;
     }
 
 
@@ -33,7 +33,7 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", yearOld=" + yearOld +
+                ", yearOld=" + yearOfBth +
                 ", gender=" + gender +
                 '}';
     }
@@ -47,12 +47,12 @@ public class Person {
         this.name = name;
     }
 
-    public int getYearOld() {
-        return yearOld;
+    public int getYearOfBth() {
+        return yearOfBth;
     }
 
-    public void setYearOld(int yearOld) {
-        this.yearOld = yearOld;
+    public void setYearOfBth(int yearOfBth) {
+        this.yearOfBth = yearOfBth;
     }
 
     public boolean isGender() {

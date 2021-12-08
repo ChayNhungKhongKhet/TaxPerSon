@@ -13,6 +13,11 @@ public class Child extends Person{
         this.incomeList = incomeList;
     }
 
+    public Child(String name, int yearOfBth, boolean gender, boolean stillLearn) {
+        super(name, yearOfBth, gender);
+        this.stillLearn = stillLearn;
+    }
+
     public Child() {
     }
 
@@ -25,8 +30,10 @@ public class Child extends Person{
             return 0;
     }
 
+
+
     public double getIncome() {
-        if (getAge() <=18 || isStillLearn())
+        if (getAge() <=18)
             return 0;
         else {
             double income = 0;
@@ -37,6 +44,8 @@ public class Child extends Person{
             return income;
         }
     }
+
+
 
 
     @Override

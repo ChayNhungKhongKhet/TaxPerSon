@@ -38,21 +38,32 @@ public class TaxPayer extends Person{
 
     public double getSumDeduct() {
         double sumDeduct;
-        double deductOfChild = 0;
+        double deductOfChild;
         double deductOfParent = 0;
         if (getIncome() > 4000000)
             for (Parent x : parentList)
                 deductOfParent += x.getDeduct();
-        double maxDdOfChild = children.get(0).getDeduct();
-        double second = 0;
-        for (Child child : children) {
-            if (maxDdOfChild < child.getIncome()) {
-                second = maxDdOfChild;
-                maxDdOfChild = child.getDeduct();
-            }
+        double maxDdOfChild ,second;
+        if (children.get(0).getDeduct() > children.get(1).getDeduct()){
+            maxDdOfChild = children.get(0).getDeduct();
+            second = children.get(1).getDeduct();
         }
-        deductOfChild += maxDdOfChild +second;
-        sumDeduct = deductOfParent + deductOfChild;
+        else{
+            maxDdOfChild = children.get(1).getDeduct();
+            second = children.get(0).getDeduct();
+        }
+
+        for (int i = 2; i < children.size(); i++) {
+            if (maxDdOfChild <= children.get(i).getDeduct()) {
+                second = maxDdOfChild;
+                maxDdOfChild = children.get(i).getDeduct();
+            }
+            else if(second <=  children.get(i).getDeduct())
+                second =  children.get(i).getDeduct();
+        }
+
+        deductOfChild = maxDdOfChild +second;
+        sumDeduct = deductOfParent + deductOfChild + super.getDeduct();
         return sumDeduct;
     }
 
