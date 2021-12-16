@@ -84,10 +84,13 @@ public class Main {
     public static List<Parent> inputListParent() {
         int n;
         List<Parent> parents = new ArrayList<>();
-        System.out.print("Enter number parent : ");
-        n = sc.nextInt();
+        do {
+            System.out.print("Enter number parent : ");
+            n = sc.nextInt();
+        }while (n > 2 || n < 0);
+
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter parent "+ i );
+            System.out.println("Enter parent "+ (i+1) );
             System.out.print("Enter name : ");
             String name = sc.nextLine();
             sc.nextLine();
@@ -95,9 +98,7 @@ public class Main {
             int year = sc.nextInt();
             System.out.print("Enter gender ,true is male, false is female : ");
             boolean gender = sc.nextBoolean();
-            System.out.println("Enter child list ");
-            List<Child> children = inputChildren();
-            parents.add(new Parent(name,year,gender,children));
+            parents.add(new Parent(name,year,gender));
         }
         System.out.println("-------------------------------------------\n");
         return parents;
@@ -115,6 +116,9 @@ public class Main {
         List<Child> children = inputChildrenOfPayer();
         System.out.println("Enter parent list  ");
         List<Parent> parents = inputListParent();
+        System.out.println("Enter info children of your parent : ");
+        List<Child> childListOfYourParent = inputChildren();
+        parents.get(0).setChildren(childListOfYourParent);
         System.out.println("Enter income list  ");
         List<Income> incomeList = inputListIncome();
         return new TaxPayer(name,year,gender,children,parents,incomeList);

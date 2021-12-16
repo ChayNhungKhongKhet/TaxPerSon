@@ -40,6 +40,7 @@ public class TaxPayer extends Person{
         double sumDeduct;
         double deductOfChild;
         double deductOfParent = 0;
+        parentList.get(1).setChildren(parentList.get(0).getChildren());
         if (getIncome() > 4000000)
             for (Parent x : parentList)
                 deductOfParent += x.getDeduct();
@@ -79,6 +80,7 @@ public class TaxPayer extends Person{
                 ", incomeList=" + incomeList +
                 '}';
     }
+
 
     public List<Child> getChildren() {
         return children;
