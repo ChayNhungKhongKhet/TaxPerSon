@@ -23,7 +23,7 @@ public class Main {
         System.out.println("Enter number income : ");
         n = sc.nextInt();
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter income " + i);
+            System.out.println("Enter income " + (i+1));
             System.out.println("Enter work content : ");
             String content = sc.nextLine();
             sc.nextLine();
@@ -42,7 +42,7 @@ public class Main {
         List<Child> childList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             sc.nextLine();
-            System.out.println("Enter child " +i );
+            System.out.println("Enter child " +(i+1) );
             System.out.print("Enter name : ");
             String name = sc.nextLine();
             System.out.print("Enter year of birth : ");
@@ -66,7 +66,7 @@ public class Main {
         List<Child> childList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             sc.nextLine();
-            System.out.println("Enter child " +i );
+            System.out.println("Enter child " +(i+1) );
             System.out.print("Enter name : ");
             String name = sc.nextLine();
             System.out.print("Enter year of birth : ");
